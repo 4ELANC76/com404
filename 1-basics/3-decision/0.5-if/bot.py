@@ -10,4 +10,6 @@ if (first_number > second_number):
   print("First is bigger!")
 if (first_number < second_number):
   print("Second is bigger!")
+if (first_number == second_number):
+  print("No number is bigger!")
 print("Done!")
