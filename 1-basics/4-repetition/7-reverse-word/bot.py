@@ -1,4 +1,4 @@
 print("Please enter a word")
 word = input()
 
-print(word[::-1])
+print("Your word backwards is:",word[::-1])
