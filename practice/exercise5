@@ -1,0 +1,6 @@
+print("Please enter your first name.")
+first_name = input()
+print("Please enter you surname.")
+surname = input()
+
+print(surname + " " + first_name)
