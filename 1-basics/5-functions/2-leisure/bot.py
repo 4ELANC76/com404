@@ -9,4 +9,5 @@ def robot_activity():
   else:
     print("I am not sure if I will like it but I will give it a try.")
 
+    #call the user defined function
 robot_activity()
