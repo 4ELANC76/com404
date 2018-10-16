@@ -1,0 +1,7 @@
+#https://www.w3resource.com/python-exercises/python-basic-exercises.php
+print("Twinkle, twinkle, little star,")
+print("\t""How I wonder what you are!")
+print("\t\t" "Up abovce the world so high,")
+print("\t\t" "Like a diamond in the sky.")
+print("Twinkle, twinkle, little star,")
+print("\t" "How I wonder what you are")
