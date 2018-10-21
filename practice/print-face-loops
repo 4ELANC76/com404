@@ -1,3 +1,9 @@
+#The key difference between the two loops is their semantic meaning.
+#A FOR loop is used for a fixed number of steps i.e. it is known how many repetitions
+#will occur whilst a WHILE loop is used when it is not known how many repetitions will occur.
+
+
+
 #repeat face 100 times |(while)
 NUM_FACES = 100
 count = 0
