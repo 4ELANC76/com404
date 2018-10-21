@@ -1,0 +1,13 @@
+#repeat face 100 times
+NUM_FACES = 100
+count = 0
+
+while(count < NUM_FACES):
+  print("#########")
+  print("#       #")
+  print("# 0   0 #")
+  print("|   v   |")
+  print("|  ---  |")
+  print("|_______|")
+
+  count = count + 1
