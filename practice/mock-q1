@@ -1,4 +1,6 @@
-#Brian wishes to create a program which greets a user.
+#input and output
+
+Brian wishes to create a program which greets a user.
 #The program should start by prompting the user to enter their name.
 #The program should then read in the user's name.
 #Finally the program should display the word “Hello” followed by the user’s name.
