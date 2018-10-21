@@ -1,4 +1,4 @@
-#repeat face 100 times
+#repeat face 100 times |(while)
 NUM_FACES = 100
 count = 0
 
@@ -11,3 +11,15 @@ while(count < NUM_FACES):
   print("|_______|")
 
   count = count + 1
+
+#repeat face 100 times (for)
+NUM_FACES = 100
+count = 0
+
+for count in range (0, NUM_FACES, 1):
+  print("#########")
+  print("#       #")
+  print("# 0   0 #")
+  print("|   v   |")
+  print("|  ---  |")
+  print("|_______|")
