@@ -1,0 +1,6 @@
+#input a word
+print("Please enter a word")
+userWord = str(input())
+#spelt out letters verticle, one letter at a time on each line
+for position in range(0, len(userWord), 1):
+	print(userWord[position])
