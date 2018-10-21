@@ -1,0 +1,13 @@
+#Gemma wishes to create a program which works out if a number is even or odd. The program should start by prompting the user to enter a whole number.
+#The program should then read in the user’s whole number.
+#The program should then decide if the user’s whole number is even or odd.
+#If the user’s whole number is even then the message “Is even” should be displayed.
+#Otherwise the message “Is odd” should be displayed
+
+
+print("Please enter a whole number:")
+number = int(input())
+if(number % 2 == 0):
+  print("Is even")
+else:
+  print("Is odd")
