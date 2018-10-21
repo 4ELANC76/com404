@@ -3,7 +3,6 @@ The program should start by prompting the user to enter their name.
 The program should then read in the user's name.
 Finally the program should display the word “Hello” followed by the user’s name.
 
-print("What is your name?")
+print("Please enter your name:")
 name = str(input())
-print(name)
 print("Hello", name)
