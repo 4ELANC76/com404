@@ -1,2 +1,19 @@
 #FOR loop = we know the number
 #While Loop = we don't know the number
+
+#>>>
+#Please enter a whole number: 4
+#Counting down...
+#4
+#3
+#2
+#1
+#0
+#>>>
+
+print("Please enter a whole number")
+countDown = int(input())
+print("Counting Down...")
+while (countDown >= 0):
+  print (countDown)
+  countDown = countDown - 1
