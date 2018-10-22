@@ -1,0 +1,28 @@
+def calculateVolumeOfCylinder (radius,height):
+  #using pi
+  import math
+  total = math.pi*(radius ** 2)
+  return total
+
+def calculateVolumeOfCone (radius,height):
+  #using pi
+  import math
+  total = (math.pi*2*height) / 3
+  return total
+
+def run ():
+  print("Please choose cylinder or cone:")
+  shape = str(input())
+
+  print("Please enter the radius:")
+  radius = int(input())
+
+  print("Please enter the height:")
+  height = int(input())
+
+  if (shape == "cylinder"):
+    print("Volume of the cylinder:", calculateVolumeOfCylinder (radius, height))
+  elif(shape == "cone"):
+    print("Volume of the cone", calculateVolumeOfCone (radius, height))
+
+run()
