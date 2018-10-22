@@ -1,0 +1,56 @@
+#unfinished problem with option issues
+
+
+
+
+def option_One ():
+  print("############")
+  print("#          #")
+  print("#", word, "#")
+  print("#          #")
+  print("############")
+  print()
+
+def option_Two ():
+  print(word.lower())
+
+def option_Three ():
+  print(word.upper())
+
+def option_Four():
+  print(word[::-1])
+
+def option_Five():
+  print("How many times would you like this repeated?")
+  num = int(input())
+  count = 0
+  while(count < num):
+    print(name)
+    count = count + 1
+
+def run():
+  print("Please insert a word:")
+  word = str(input())
+
+  print ("Please choose one of the following options:")
+  print ("1) Display in a Box")
+  print("2) Display Lower-case")
+  print("3) Display Upper-case")
+  print("4) Display Mirrored")
+  print("5) Repeat")
+  option = int(input())
+
+  if (option == 1):
+    print(option_One)
+  elif (option == 2):
+    print( option_Two)
+  elif (option == 3):
+    print( option_Three)
+  elif (option == 4):
+    print(word, option_Four)
+  elif (option == 5):
+    print(option_Five)
+  else:
+    print("error message")  
+
+run()
