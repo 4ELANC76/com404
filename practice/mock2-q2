@@ -1,0 +1,9 @@
+#decision
+
+print("Please enter a whole number:")
+num = int(input())
+
+if(num % 3 == 0):
+  print("Is a multiple of 3")
+else:
+  print("Is not a multiple of 3")
