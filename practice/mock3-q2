@@ -1,0 +1,15 @@
+#Yoda wishes to create a program which will help him pick a Jedi apprentice.
+#The program should start by displaying the message "Have you fear in your heart?"
+#The program should then read in the user’s string.
+#The program should then decide if the user can be a Jedi. 
+#If the user’s response is "yes" then the message "Fear is the path to the dark side. You cannot be a Jedi apprentice." should be displayed. 
+#Otherwise the message "The force is strong in you. You may be a Jedi apprentice." should be displayed.
+
+
+print("Have you fear in your heart?")
+fear = str(input())
+
+if(fear == "yes"):
+  print("Fear is the path to the dark side. You cannot be a Jedi apprentice.")
+else:
+  print("The force is strong in you. You may be a Jedi apprentice.")
