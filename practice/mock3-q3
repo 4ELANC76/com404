@@ -1,0 +1,19 @@
+#loop
+#Dr Bravestone wishes to create a program which will help him escape the Jumanji jungle.
+#The program should start by displaying the message "How many zones must I cross?"
+#The program should then read in the user’s whole number.
+#The program should then display the message "Crossing zones...". 
+#The program should then display all the numbers from the user's whole number to 1 in the form "…crossed zone [number]" where [number] is the zone number.
+#Finally, the program should display the message "Crossed all zones.  Jumanji!"
+
+print("How many zones must I cross?")
+zones = int(input())
+
+total = 0
+
+for count in range (zones, 0 ,-1):
+
+  print("...crossed zone", count)
+
+
+print("Crossed all zones. Jumanji!")
