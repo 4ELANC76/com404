@@ -1,0 +1,19 @@
+#>>>
+#Please enter a whole number: 1
+#Please enter a whole number: 2
+#Please enter a whole number: 3
+#Please enter a whole number: 4
+#Please enter a whole number: 5
+#Please enter a whole number: 6
+#Please enter a whole number: 7
+#The total for all numbers that are a multiple of 3 is: 9 >>>
+
+
+total = 0
+for count in range (0,7,1):
+  print("Please enter a whole number:")
+  user_number = int(input())
+  if (user_number % 3 == 0):
+    total = total + user_number
+
+print("The total of all the numbers that are a multiple of 3:", total)
