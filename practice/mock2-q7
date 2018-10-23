@@ -1,11 +1,8 @@
 #unfinished problem with option issues
 
-
-
-
 total = 0
 count = 0
-def option_One ():
+def option_One (word):
   print("############")
   print("#          #")
   print("#", word, "#")
@@ -13,16 +10,16 @@ def option_One ():
   print("############")
   print()
 
-def option_Two ():
+def option_Two (word):
   print(word.lower())
 
 def option_Three ():
   print(word.upper())
 
-def option_Four():
+def option_Four(word):
   print(word[::-1])
 
-def option_Five():
+def option_Five(word):
   print("How many times would you like this repeated?")
   num = int(input())
   count = 0
@@ -43,15 +40,15 @@ def run():
   option = int(input())
 
   if (option == 1):
-    print (option_One())
+    print (option_One(word))
   elif (option == 2):
-    print(option_Two())
+    print(option_Two(word))
   elif (option == 3):
-    print(option_Three())
+    print(option_Three(word))
   elif (option == 4):
-    print(word, option_Four())
+    print(option_Four(word))
   elif (option == 5):
-    print(option_Five())
+    print(option_Five(word))
   else:
     print("error message")  
 
