@@ -1,0 +1,6 @@
+print("What happens when the last petal falls?")
+response = input()
+
+print("My dear Bella when the last petal falls", response)
+
+#no user input needs to be typed
