@@ -8,7 +8,6 @@ def option_One (word):
   print("#", word, "#")
   print("#          #")
   print("############")
-  print()
 
 def option_Two (word):
   print(word.lower())
@@ -24,7 +23,7 @@ def option_Five(word):
   num = int(input())
   count = 0
   while(count < num):
-    print(name)
+    print(word)
     count = count + 1
 
 def run():
