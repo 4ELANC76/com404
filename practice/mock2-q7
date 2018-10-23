@@ -3,6 +3,8 @@
 
 
 
+total = 0
+count = 0
 def option_One ():
   print("############")
   print("#          #")
@@ -41,15 +43,15 @@ def run():
   option = int(input())
 
   if (option == 1):
-    print(option_One)
+    print (option_One())
   elif (option == 2):
-    print( option_Two)
+    print(option_Two())
   elif (option == 3):
-    print( option_Three)
+    print(option_Three())
   elif (option == 4):
-    print(word, option_Four)
+    print(word, option_Four())
   elif (option == 5):
-    print(option_Five)
+    print(option_Five())
   else:
     print("error message")  
 
