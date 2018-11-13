@@ -1,0 +1,53 @@
+from gui import Gui
+
+gui = Gui()
+gui.mainloop()
+
+
+
+
+
+
+
+
+from tkinter import *
+
+class Gui(Tk):
+    
+    def __init__(self):
+        super().__init__()
+        
+        # set window attributes
+        self.title("Gui")
+        
+        # add components
+        self.add_heading_label()
+        self.add_instruction_label()
+        self.add_tickets_entry()
+        self.add_submit_button()
+        
+    def add_heading_label(self):
+        #create
+        self.heading_label = Label()
+        self.heading_label.pack()
+
+
+        #style
+        self.heading_label.configure(font="Arial 16", text="Entrance Ticket")
+        
+        
+    def add_instruction_label(self):
+        self.instruction_label = Label()
+        self.instruction_label.pack()
+
+        self.instruction_label.configure(font="Arial 9", text="How many tickets are needed?")
+        
+    def add_tickets_entry(self):
+        self.tickets_entry = Entry()
+        self.tickets_entry.pack()
+        
+    def add_submit_button(self):
+        self.submit_button = Button()
+        self.submit_button.pack()
+
+        self.submit_button.configure(font="Arial 9", text="Buy",height=1, width=25)
