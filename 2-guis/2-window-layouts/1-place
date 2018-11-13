@@ -1,0 +1,40 @@
+from gui import Gui
+
+gui = Gui()
+gui.mainloop()
+
+
+
+
+
+
+
+from tkinter import *
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+        #set window attributes
+        self.title("My Gui")
+        self.configure(height=500, width=500)
+
+        #add components to call
+        self.add_heading_label()
+
+    def add_heading_label(self):
+        #create
+        #self is the window
+        self.heading_label = Label()
+        self.heading_label.pack()
+        #will pack to the centre
+
+        #style
+        self.heading_label.configure(font="Arial 16")
+
+        #events
+
+    def add_instructions_label(self):
+        pass
+    
