@@ -1,0 +1,59 @@
+from tkinter import *
+
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+
+
+        #set window attributes
+        self.title("Song Maker")
+        self.configure(height=500, width=500)
+
+        #add components to call
+        self.add_lyric_add_label()
+        self.add_lyric_add_frame()
+        self.add_button()
+        self.add_lyric_label()
+        self.add_lyric_list()
+    
+
+
+
+    def add_lyric_add_label(self):
+        #create
+        #self is the window
+        self.lyric_add_label = Label()
+        self.lyric_add_label.pack(side=LEFT)
+        #will pack to the centre
+
+        #style
+        self.heading_label.configure(font="Arial 10", text="Lyric to add:")
+
+    def add_lyric_add_frame(self):
+        self.
+
+    def add_button()
+    pass
+
+    def add_lyric_label()
+    pass
+
+    def add_lyric_list()
+    pass
+
+
+    
+
+
+
+
+
+
+
+
+               
+
+    
