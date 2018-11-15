@@ -79,6 +79,7 @@ class Gui(Tk):
         self.subscribe_button.configure(font="Arial 9", text="Subscribe",height=1, width=25)
 
         self.subscribe_button.bind("<ButtonRelease-1>", self.subscribe_button_clicked)
+        #when button is clicked, it will run the self.subscribe_button_clicked)
 
 
     def subscribe_button_clicked(self, event):
