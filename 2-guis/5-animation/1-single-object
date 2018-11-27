@@ -1,3 +1,6 @@
+#create a file (ball.gif) and save in the same place
+
+
 from tkinter import *
 import time
 
