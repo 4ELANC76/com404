@@ -1,0 +1,216 @@
+from tkinter import *
+
+import time
+
+
+
+# the class
+
+class AnimatedGui(Tk):
+
+    def __init__(self):
+
+        super().__init__()
+
+
+        #define num_ticks
+
+        self.num_ticks =0
+
+        # load resources
+
+        self.ball_image = PhotoImage(file="ball.gif")
+
+        self.ball2_image = PhotoImage(file="ball2.gif")
+
+        
+
+        # set window attributes
+
+        self.configure(height=500,
+
+                       width=500)
+
+
+
+        # set animation attributes
+
+        self.ball_x_pos = 0
+
+        self.ball_y_pos = 150
+
+        self.ball_x_change = 10
+
+        self.ball_y_change = 0
+
+
+
+        self.ball2_x_pos = 200
+
+        self.ball2_y_pos = 50
+
+        self.ball2_x_change = 10
+
+        self.ball2_y_change = 0
+
+    
+
+        # add components
+
+        self.add_ball_image_label()
+        self.add_ball2_image_label()
+
+
+        # start the timer
+
+        self.tick()
+        
+
+        
+
+    # the timer tick function    
+
+    def tick(self):
+
+        #add for num_ticks
+
+        self.num_ticks += 1
+
+        self.ball_x_pos = self.ball_x_pos + self.ball_x_change
+
+        self.ball_y_pos = self.ball_y_pos + self.ball_y_change
+
+        self.ball_image_label.place(x=self.ball_x_pos, 
+
+                                    y=self.ball_y_pos)
+
+  
+
+        if (self.num_ticks % 4 == 0):
+            self.ball2_x_pos = self.ball2_x_pos + self.ball2_x_change
+
+            self.ball2_y_pos = self.ball2_y_pos + self.ball2_y_change
+
+            self.ball2_image_label.place(x=self.ball2_x_pos, 
+
+                                        y=self.ball2_y_pos)
+
+
+            #top2
+            #make sure the next bit for ball 2 is indented within the if(self_num) bit 
+
+            if (self.ball2_y_pos <= 0):
+
+                self.ball2_y_change *= -1
+
+
+            #left2
+
+            if (self.ball2_x_pos <= 0):
+
+                self.ball2_x_change *= -1
+
+
+            #right2    
+
+            if (self.ball2_x_pos >= 450):
+
+                self.ball2_x_change *= -1
+
+
+            #bottom2   
+
+            if (self.ball2_y_pos >= 450):
+
+                self.ball2_y_change *= -1
+
+
+       
+       
+
+        #top
+
+        if (self.ball_y_pos <= 0):
+
+            self.ball_y_change *= -1
+
+
+
+        #left
+
+        if (self.ball_x_pos <= 0):
+
+            self.ball_x_change *= -1
+
+
+
+        #right    
+
+        if (self.ball_x_pos >= 450):
+
+            self.ball_x_change *= -1
+
+
+
+        #bottom   
+
+        if (self.ball_y_pos >= 450):
+
+            self.ball_y_change *= -1
+
+
+
+        
+
+    
+        self.after(100, self.tick)
+
+  
+
+        
+
+
+
+
+
+        
+
+  
+
+
+
+    # the ball image
+
+    def add_ball_image_label(self):
+
+        self.ball_image_label = Label()
+
+        self.ball_image_label.place(x=self.ball_x_pos,
+
+                                    y=self.ball_y_pos)
+
+        self.ball_image_label.configure(image=self.ball_image)
+
+
+
+
+
+    def add_ball2_image_label(self):
+
+        self.ball2_image_label = Label()
+
+        self.ball2_image_label.place(x=self.ball2_x_pos,
+
+                                    y=self.ball2_y_pos)
+
+        self.ball2_image_label.configure(image=self.ball2_image)
+
+     
+
+# the object
+
+if __name__ == "__main__":
+
+    gui = AnimatedGui()    
+
+    gui.mainloop()
