@@ -1,0 +1,251 @@
+from tkinter import *
+
+
+
+import time
+
+
+
+
+
+
+
+# the class
+
+
+
+class AnimatedGui(Tk):
+
+
+
+    def __init__(self):
+
+
+
+        super().__init__()
+
+
+
+
+
+        #define num_ticks
+
+
+
+        self.num_ticks =0
+
+
+
+        # load resources
+
+
+
+        self.ball_image = PhotoImage(file="ball.gif")
+
+
+
+
+
+        # set window attributes
+
+
+
+        self.configure(height=500,
+
+
+
+                       width=500)
+
+
+
+
+        # set animation attributes
+
+
+
+        self.ball_x_pos = 0
+
+
+
+        self.ball_y_pos = 150
+
+
+
+        self.ball_x_change = 10
+
+
+
+        self.ball_y_change = 0
+
+
+
+
+        # add components
+
+
+
+        self.add_ball_image_label()
+        
+
+
+
+        # start the timer
+
+
+
+        self.tick()
+
+        
+
+    # the timer tick function    
+
+
+
+    def tick(self):
+
+
+        self.ball_x_pos = self.ball_x_pos + self.ball_x_change
+
+
+
+        self.ball_y_pos = self.ball_y_pos + self.ball_y_change
+
+
+
+        self.ball_image_label.place(x=self.ball_x_pos, 
+
+
+
+                                    y=self.ball_y_pos)
+
+
+
+        #top
+
+
+
+        if (self.ball_y_pos <= 0):
+
+
+
+            self.ball_y_change *= -1
+
+
+
+
+        #left
+
+
+
+        if (self.ball_x_pos <= 0):
+
+
+
+            self.ball_x_change *= -1
+
+
+
+
+        #right    
+
+
+
+        if (self.ball_x_pos >= 450):
+
+
+
+            self.ball_x_change *= -1
+
+
+
+        #bottom   
+
+
+
+        if (self.ball_y_pos >= 450):
+
+
+
+            self.ball_y_change *= -1
+
+
+        self.after(100, self.tick)
+
+
+
+
+    # the ball image
+
+
+
+    def add_ball_image_label(self):
+
+
+
+        self.ball_image_label = Label()
+
+
+
+        self.ball_image_label.place(x=self.ball_x_pos,
+
+
+
+                                    y=self.ball_y_pos)
+
+
+
+        self.ball_image_label.configure(image=self.ball_image)
+
+
+
+
+
+
+
+    def add_up_button(self):
+        self.up_button = Button()
+        self.up_button.place(x=50, y=300)
+
+        self.up_button.configure(font="Arial 9", text="Up", height=1, width=25)
+        self.up_button.bind("<ButtonRelease-1>", self.up_button_clicked)
+
+    def up_button_clicked(self, event):
+        
+
+        self.ball_y_pos = self.ball_y_pos + self.ball_y_change
+
+        self.ball_image_label.place(x=self.ball_x_pos, 
+
+                                    y=self.ball_y_pos)
+
+
+    def add_down_button(self):
+        self.down_button = Button()
+        self.down_button.place(x=200, y=300)
+
+        self.down_button.configure(font="Arial 9", text="Down", height=1, width=25)
+        self.down_button.bind("<ButtonRelease-1>", self.down_button_clicked)
+
+    def down_button_clicked(self, event):
+        self.ball_x_pos = self.ball_y_pos + self.ball_y_change
+
+        
+        self.ball_image_label.place(x=self.ball_x_pos, 
+
+                                    y=self.ball_y_pos)
+
+
+
+# the object
+
+
+
+if __name__ == "__main__":
+
+
+
+    gui = AnimatedGui()    
+
+
+
+    gui.mainloop()
