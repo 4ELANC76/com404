@@ -1,13 +1,6 @@
 from tkinter import *
 
-
-
 import time
-
-
-
-
-
 
 
 # the class
@@ -24,25 +17,16 @@ class AnimatedGui(Tk):
 
         super().__init__()
 
-
-
-
-
         #define num_ticks
-
 
 
         self.num_ticks =0
 
 
-
         # load resources
 
 
-
         self.ball_image = PhotoImage(file="ball.gif")
-
-
 
 
 
@@ -85,6 +69,8 @@ class AnimatedGui(Tk):
 
 
         self.add_ball_image_label()
+        self.add_up_button()
+        self.add_down_button()
         
 
 
@@ -120,15 +106,7 @@ class AnimatedGui(Tk):
 
 
 
-        #top
-
-
-
-        if (self.ball_y_pos <= 0):
-
-
-
-            self.ball_y_change *= -1
+      
 
 
 
@@ -158,48 +136,21 @@ class AnimatedGui(Tk):
 
 
 
-        #bottom   
-
-
-
-        if (self.ball_y_pos >= 450):
-
-
-
-            self.ball_y_change *= -1
-
-
         self.after(100, self.tick)
-
-
 
 
     # the ball image
 
-
-
     def add_ball_image_label(self):
-
 
 
         self.ball_image_label = Label()
 
-
-
         self.ball_image_label.place(x=self.ball_x_pos,
-
-
 
                                     y=self.ball_y_pos)
 
-
-
         self.ball_image_label.configure(image=self.ball_image)
-
-
-
-
-
 
 
     def add_up_button(self):
@@ -211,23 +162,20 @@ class AnimatedGui(Tk):
 
     def up_button_clicked(self, event):
         
-
         self.ball_y_pos = self.ball_y_pos + self.ball_y_change
 
-        self.ball_image_label.place(x=self.ball_x_pos, 
-
-                                    y=self.ball_y_pos)
+        self.ball_image_label.place(x=self.ball_x_pos, y=self.ball_y_pos)
 
 
     def add_down_button(self):
         self.down_button = Button()
-        self.down_button.place(x=200, y=300)
+        self.down_button.place(x=300, y=300)
 
         self.down_button.configure(font="Arial 9", text="Down", height=1, width=25)
         self.down_button.bind("<ButtonRelease-1>", self.down_button_clicked)
 
     def down_button_clicked(self, event):
-        self.ball_x_pos = self.ball_y_pos + self.ball_y_change
+        self.ball_y_pos = self.ball_y_pos - self.ball_y_change 
 
         
         self.ball_image_label.place(x=self.ball_x_pos, 
@@ -248,4 +196,4 @@ if __name__ == "__main__":
 
 
 
-    gui.mainloop()
+gui.mainloop()
