@@ -1,8 +1,4 @@
 from tkinter import *
-import time
-
-# the class
-from tkinter import *
 
 class Gui(Tk):
     
