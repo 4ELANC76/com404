@@ -1,0 +1,151 @@
+#wrong - error
+
+
+from tkinter import *
+
+
+
+class Gui(Tk):
+
+
+
+    def __init__(self):
+
+        super().__init__()
+
+        #load resources
+        self.icon_image = PhotoImage(file="default.gif")
+
+
+        #set window attributes
+
+        self.title("Newsletter")
+
+        self.configure(height=500, width=500, bg="#eee", padx=10, pady=10)
+
+
+
+        #add components to call
+
+        self.add_heading_label()
+
+        self.add_instruction_label()
+
+        self.add_email_frame()
+
+        self.add_email_label()
+
+        self.add_email_entry()
+
+        self.add_icon_image_label()
+
+        self.add_subscribe_button()
+
+
+
+    def add_heading_label(self):
+
+        #create
+
+        #self is the window
+
+        self.heading_label = Label()
+
+        self.heading_label.grid(row=0, column=0, columnspan=3)
+
+        
+
+        #will pack to the centre
+
+
+
+        #style
+
+        self.heading_label.configure(font="Arial 14", text="RECEIVE OUR NEWSLETTER", pady=10)
+
+
+
+    def add_instruction_label(self):
+
+        self.instruction_label = Label()
+
+        self.instruction_label.grid(row=1, column=0, columnspan=3)
+
+
+
+        self.instruction_label.configure(font="Arial 9",
+                                         text="Please enter your email below to receive our newsletter:",
+                                         padx=10,
+                                         pady=10)
+
+
+
+    def add_email_frame(self):
+
+        self.email_frame = Frame()
+
+        self.email_frame.grid(row=2, column=0, columnspan=3)
+
+        self.email_frame.configure(pady=10)
+
+
+
+    def add_email_label(self):
+
+        self.email_label = Label(self.email_frame)
+
+        self.email_label.pack(side=LEFT)
+
+
+
+        self.email_label.configure(font="Arial 10", text="Email:")
+
+
+    def add_email_entry(self):
+
+        self.email_entry = Entry(self.email_frame)
+
+        self.email_entry.pack(side=LEFT)
+
+        self.email_entry.configure(width=30, bd=2, fg="#f00") 
+
+
+
+    def add_image_label(self):
+
+        self.image_label = Label(self.email_frame)
+
+        self.image_label.pack(side=LEFT)
+
+        self.email_label.configure(image=self.add_icon_imagel, width=5, height=5, padx=10)
+
+
+
+    def add_subscribe_button(self):
+
+        self.subscribe_button = Button()
+
+        self.subscribe_button.grid(row=3, column=0, columnspan=3)
+
+
+
+        self.subscribe_button.configure(font="Arial 9", text="Subscribe",height=1, width=25, bg="#fee")
+
+        self.subscribe_button.bind("<ButtonRelease-1>", self.subscribe_button_clicked)
+
+
+
+
+    def subscribe_button_clicked(self, event):
+
+        user_email = self.email_entry.get()
+
+        messagebox.showinfo("Gui", "Your email" + user_email + "has been added.")
+
+ 
+
+
+
+gui = Gui()
+
+gui.mainloop()
