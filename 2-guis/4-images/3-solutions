@@ -1,0 +1,125 @@
+#3 images
+from tkinter import *
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+        
+        # load resources
+        self.ambulance_image = PhotoImage(file="ambulance.gif")
+        self.bike_image = PhotoImage(file="bike.gif")
+        self.plane_image = PhotoImage(file="plane.gif")
+        
+        # set window attributes
+        self.title("Gui")
+        self.configure(padx=10, pady=10)
+        
+        # add components
+        self.add_heading_label()
+        self.add_ambulance_image_label()
+        self.add_bike_image_label()
+        self.add_plane_image_label()
+
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.grid(row=0, column=0, columnspan=3)
+        self.heading_label.configure(text="Transport")
+        
+    def add_ambulance_image_label(self):
+        self.ambulance_image_label = Label()
+        self.ambulance_image_label.grid(row=1, column=0)
+        self.ambulance_image_label.configure(image=self.ambulance_image,
+                                             height=32,
+                                             width=32)
+
+    def add_bike_image_label(self):
+        self.ambulance_image_label = Label()
+        self.ambulance_image_label.grid(row=1, column=1)
+        self.ambulance_image_label.configure(image=self.bike_image,
+                                             height=32,
+                                             width=32)
+ 
+    def add_plane_image_label(self):
+        self.ambulance_image_label = Label()
+        self.ambulance_image_label.grid(row=1, column=2)
+        self.ambulance_image_label.configure(image=self.plane_image,
+                                             height=32,
+                                             width=32)
+ 
+
+
+# Create an object of the gui
+gui = Gui()
+gui.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#flipping image with letf and right on same button
+
+from tkinter import *
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+        
+        # load resources
+        self.cactus_image = PhotoImage(file="cactus.gif")
+        self.cactus_with_name_image = PhotoImage(file="cactus_with_name.gif")
+        
+        # set window attributes
+        self.title("Gui")
+        self.configure(padx=10, pady=10)
+        
+        # add components
+        self.add_heading_label()
+        self.add_cactus_image_label()
+        self.add_flip_button()
+
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.grid(row=0, column=0)
+        self.heading_label.configure(text="Cactus Leaves")
+        
+    def add_cactus_image_label(self):
+        self.cactus_image_label = Label()
+        self.cactus_image_label.grid(row=1, column=0)
+        self.cactus_image_label.configure(image=self.cactus_image,
+                                          height=300,
+                                          width=200)
+    def add_flip_button(self):
+        self.flip_button = Button()
+        self.flip_button.grid(row=2, column=0)
+        self.flip_button.configure(text="Flip")
+        self.flip_button.bind("", self.flip_left)
+        self.flip_button.bind("", self.flip_right)
+
+    def flip_left(self, event):
+        self.cactus_image_label.configure(image=self.cactus_image)
+
+    def flip_right(self, event):
+        self.cactus_image_label.configure(image=self.cactus_with_name_image)
+
+
+# Create an object of the gui
+gui = Gui()
+gui.mainloop()
+
+
+
