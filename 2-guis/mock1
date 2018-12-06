@@ -23,7 +23,7 @@ class Gui(Tk):
 
 
     def add_heading_label(self):
-        #create
+=10        #create
         #self is the window
         self.heading_label = Label()
         self.heading_label.pack()
@@ -38,7 +38,7 @@ class Gui(Tk):
         self.instruction_label = Label()
         self.instruction_label.pack()
 
-        self.instruction_label.configure(font="Arial 9", text="Please enter your email below to receive our newsletter:", padx=10, pady)
+        self.instruction_label.configure(font="Arial 9", text="Please enter your email below to receive our newsletter:", padx=10, pady=10)
 
 
      
