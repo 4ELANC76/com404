@@ -1,65 +1,119 @@
-#THIS HAS ERRORS
-
 from tkinter import *
 
+
+
 class Gui(Tk):
+
     
+
     def __init__(self):
+
         super().__init__()
 
+
+
         # load resources
-        self.ambulance_image = PhotoImage(file="ambulance.gif")
-        self.bike_image = PhotoImage(file="bike.gif")
+
+        self.cactus_image = PhotoImage(file="cactus.gif")
         
-        
-        # set window attributes
-        self.title("Gui")
-        self.configure(height=500, width=500)
-        
-        # add components
-        self.add_heading_label()
-        self.add_ambulance_image_label()
-        self.add_flip_button()
-        self.add_bike_image_label()
+        #you need to call the image that your changing to but dont create a def function for it
+
+        self.cactus_with_name_image = PhotoImage(file="cactus_with_name.gif")
+
         
 
         
-    def add_heading_label(self):
-        self.heading_label = Label()
+
+        # set window attributes
+
+        self.title("Gui")
+
+        self.configure(height=500, width=800)
+
         
+
+        # add components
+
+        self.add_heading_label()
+
+        self.add_cactus_image_label()
+
+        self.add_flip_button()
+
+      
+
+        
+
+
+
+        
+
+    def add_heading_label(self):
+
+        self.heading_label = Label()
+
+        
+
+
 
         self.heading_label.grid(row=1, column=1, columnspan=1)
+
         self.heading_label.configure(font="Arial 20", text="Cactus Leaves")
+    
+   #there's on label but two images
+
+
 
         
-    def add_ambulance_image_label(self):
-        self.ambulance_image_label = Label()
-        self.ambulance_image_label.grid(row=2, column=1)
-        self.ambulance_image_label.configure(image=self.ambulance_image,
-                                             height=200,
-                                             width=200)
+
+    def add_cactus_image_label(self):
+
+        self.cactus_image_label = Label()
+
+        self.cactus_image_label.grid(row=2, column=1)
+
+        self.cactus_image_label.configure(image=self.cactus_image,
+
+                                             height=500,
+
+                                             width=800)
+
         
+
+
 
     def add_flip_button(self):
+
         self.flip_button = Button()
+
         self.flip_button.grid(row=3, column=1)
+
         self.flip_button.configure(font="Arial 9", text="Flip",height=1, width=25)
 
-        self.flip_button.bind("<ButtonRelease-1>", self.flip_button_clicked)
 
+
+        self.flip_button.bind("<ButtonRelease-1>", self.left_button_clicked)
+        #-1 is right button
+        self.flip_button.bind("<ButtonRelease-3>", self.right_button_clicked)
+        #-3 is left button
+        #-2 is middle button if there is one
+
+
+    def left_button_clicked(self, event):
+
+        self.cactus_image_label.configure(image = self.cactus_image)
     
         
+    def right_button_clicked(self, event):
 
-    def flip_button_clicked(self, event):
-        self.ambulance_image_label.configure(image = self.bike_image)
+        self.cactus_image_label.configure(image = self.cactus_with_name_image)
+
 
    
-        
-            
-
-
-
 # Create an object of the Gui class when this module is executed
+
 if (__name__ == "__main__"):
+
     gui = Gui()
+
 gui.mainloop()
