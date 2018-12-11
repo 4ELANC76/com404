@@ -1,0 +1,52 @@
+#BUS JOURNEY
+
+
+from tkinter import *
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+        
+        # load resources
+        self.map_image = PhotoImage(file="map.gif")
+        self.bus_image = PhotoImage(file="bus.gif")
+        
+        # set window attributes
+        self.title("Gui")
+        
+        # add components
+        self.add_heading_label()
+        self.add_map_frame()
+        self.add_map_image_label()
+        self.add_bus_image_label()
+
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.grid(row=0, column=0)
+        self.heading_label.configure(text="Bus Journey")
+
+    def add_map_frame(self):
+        self.map_frame = Frame()
+        self.map_frame.grid(row=1, column=0)
+        self.map_frame.configure(height=200, width=300)
+        
+    def add_map_image_label(self):
+        self.map_label = Label(self.map_frame)
+        self.map_label.place(x=0, y=0)
+        self.map_label.configure(image=self.map_image, height=200, width=300)
+
+    def add_bus_image_label(self):
+        self.bus_label = Label(self.map_frame)
+        self.bus_label.place(x=10, y=10)
+        self.bus_label.configure(image=self.bus_image, height=30, width=30)
+
+        self.bus_label.bind("<B1-Motion>", self.move_bus)
+
+    def move_bus(self, event):
+        self.bus_label.place(x=event.x, y=event.y)
+
+
+# Create an object of the gui
+gui = Gui()
+gui.mainloop()
