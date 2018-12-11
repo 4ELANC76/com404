@@ -1,0 +1,71 @@
+#Songmaker
+
+from tkinter import *
+from tkinter import messagebox
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+        # set window attributes
+        self.title("My Gui")
+        self.configure(padx=10,
+                       pady=10)
+
+        # add components
+        self.add_heading_label()
+        self.add_lyric_label()
+        self.add_lyric_entry()
+        self.add_add_button()
+        self.add_lyrics_label()
+        self.add_lyrics_listbox()
+
+
+    def add_heading_label(self):
+        #create
+        self.heading_label = Label()
+        self.heading_label.grid(row=0, column=0, columnspan=2)
+        #style
+        self.heading_label.configure(font="Arial 20",
+                                     text="Song Maker")
+        #events
+
+    def add_lyric_label(self):
+        #create
+        self.lyric_label = Label()
+        self.lyric_label.grid(row=1, column=0, columnspan=2, sticky=W)
+        #style
+        self.lyric_label.configure(text="Lyric to add:",
+                                   pady=10)
+
+    def add_lyric_entry(self):
+        #create
+        self.lyric_entry = Entry()
+        self.lyric_entry.grid(row=2, column=0)
+
+    def add_add_button(self):
+        #create
+        self.add_button = Button()
+        self.add_button.grid(row=2, column=1)
+        #style
+        self.add_button.configure(text="Add")
+        #events
+        self.add_button.bind("<ButtonRelease-1>", self.add_button_clicked)
+
+    def add_lyrics_label(self):
+        #create
+        self.lyrics_label = Label()
+        self.lyrics_label.grid(row=3, column=0, columnspan=2, sticky=W)
+        #style
+        self.lyrics_label.configure(text="Lyrics:")
+
+    def add_lyrics_listbox(self):
+        #create
+        self.lyrics_listbox = Listbox()
+        self.lyrics_listbox.grid(row=4, column=0, columnspan=2)
+
+    def add_button_clicked(self, event):
+        lyric = self.lyric_entry.get()
+        self.lyrics_listbox.insert(END, lyric)
+        messagebox.showinfo("Added!", "Your lyric has been added!")
