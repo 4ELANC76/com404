@@ -1,0 +1,404 @@
+#TASK A2 - CURENCY CONVERTER
+#The first step should always be to set-up the class so that it has the minimum code that can be executed to display the window:
+
+from tkinter import *
+
+# the class
+class CurrencyConverter(Tk):
+    def __init__(self):
+  	
+        # initialise the window
+  	 super().__init__()
+    
+
+# the object
+gui = CurrencyConverter()
+gui.mainloop()
+
+
+
+#Now we can look at the design and decide how to lay it out. It is recommended that we think in terms of rows. Where a row has more than one component, we can group the components using a frame (so the buttons in the above design would be placed in a frame). Our rows would be as follows:
+
+from tkinter import *
+
+# the class
+class CurrencyConverter(Tk):
+
+    def __init__(self):
+  	
+        # initialise the window
+        super().__init__()
+        
+        # add components
+        self.add_heading_label()
+
+    def add_heading_label(self):
+    
+        # add the label
+        self.heading_label = Label(text="Currency Converter")
+        self.heading_label.pack(fill=X)
+        
+        # style the label
+        # - add padding of 50px to the sides of the label
+        # - set font to Arial 18
+        # - add padding of 10px above and below the label
+        self.heading_label.configure(font="Arial 18",
+                                     padx=50,
+                                     pady=10)
+
+# the object
+gui = CurrencyConverter()
+gui.mainloop() 
+
+
+
+#We can add the remaining components and some styling uisng the same pattern. Note, when adding the buttons we group them in to a frame and then add the frame to the form.
+
+from tkinter import *
+
+# the class
+class CurrencyConverter(Tk):
+
+    def __init__(self):
+
+        # initialise window
+        super().__init__()
+
+        # style the window as follows...
+        # ...add padding of 10 pixels
+        # ...set background colour to pink
+        self.configure(bg="pink",
+                       padx=10,
+                       pady=10)
+
+        # add components
+        self.add_heading_label()
+        self.add_amount_label()
+        self.add_amount_entry()
+        self.add_buttons()
+        self.add_message_label()
+       
+   
+    def add_heading_label(self):
+
+        # add heading label
+        self.heading_label = Label(text="Currency Converter")
+        self.heading_label.pack(fill=X)
+               
+        # style the heading label as follows...
+        # ...change the font to Arial, size 18
+        # ...add padding of 10 pixels above and below
+        # ...add padding of 50 pixels on the sides
+        self.heading_label.configure(bg="pink",
+                                     font="Arial 18",
+                                     pady=10,
+                                     padx=50)
+
+    def add_amount_label(self):
+
+        # add amount label
+        self.amount_label = Label(text="Amount")
+        self.amount_label.pack(anchor=W)
+
+        # style the amount label as follows...
+        # ...set background colour to pink
+        self.amount_label.configure(bg="pink")
+
+    def add_amount_entry(self):
+
+        # add amount entry
+        self.amount_entry = Entry()
+        self.amount_entry.pack(fill=X)
+
+    def add_buttons(self):
+
+        # add buttons frame
+        self.buttons_frame = Frame()
+        self.buttons_frame.pack()
+
+        # style the buttons frame as follows...
+        # ...set the background colour to pink
+        # ...add padding of 10 pixels above and below
+        self.buttons_frame.configure(bg="pink",
+                                     pady=10,
+                                     padx=10)
+       
+        # add clear button
+        self.clear_button = Button(self.buttons_frame, text="Clear")
+        self.clear_button.pack(side=LEFT)
+        
+        # style the clear button
+        self.clear_button.configure(padx=10)
+
+        # add convert button
+        self.convert_button = Button(self.buttons_frame, text="Convert")
+        self.convert_button.pack(side=LEFT)
+        
+        # style the convert button
+        self.convert_button.configure(padx=10)
+
+    def add_message_label(self):
+
+        # add message label
+        self.message_label = Label(text="System Message Displayed Here")
+        self.message_label.pack(fill=X)
+
+        # style the message label as follows...
+        # ...set border to 1 px
+        # ...set background colour to yellow
+        self.message_label.configure(bd=1,
+                                     bg="yellow")
+       
+      
+
+# the object
+gui = CurrencyConverter()
+gui.mainloop()
+
+
+
+
+
+#TASK A3 When the convert button is clicked the message displayed in the system message label should be changed to "Converting..."
+#When adding events to our form it is recommended to use the bind approach. In this case we wish to bind a left mouse click to the button so that when it is clicked it displays the relevant message in message label:
+
+from tkinter import *
+
+# the class
+class CurrencyConverter(Tk):
+
+    def __init__(self):
+
+        # initialise window
+        super().__init__()
+
+        # style the window as follows...
+        # ...add padding of 10 pixels
+        # ...set background colour to pink
+        self.configure(bg="pink",
+                       padx=10,
+                       pady=10)
+
+        # add components
+        self.add_heading_label()
+        self.add_amount_label()
+        self.add_amount_entry()
+        self.add_buttons()
+        self.add_message_label()
+       
+   
+    def add_heading_label(self):
+
+        # add heading label
+        self.heading_label = Label(text="Currency Converter")
+        self.heading_label.pack(fill=X)
+               
+        # style the heading label as follows...
+        # ...change the font to Arial, size 18
+        # ...add padding of 10 pixels above and below
+        # ...add padding of 50 pixels on the sides
+        self.heading_label.configure(bg="pink",
+                                     font="Arial 18",
+                                     pady=10,
+                                     padx=50)
+
+    def add_amount_label(self):
+
+        # add amount label
+        self.amount_label = Label(text="Amount")
+        self.amount_label.pack(anchor=W)
+
+        # style the amount label as follows...
+        # ...set background colour to pink
+        self.amount_label.configure(bg="pink")
+
+    def add_amount_entry(self):
+
+        # add amount entry
+        self.amount_entry = Entry()
+        self.amount_entry.pack(fill=X)
+
+    def add_buttons(self):
+
+        # add buttons frame
+        self.buttons_frame = Frame()
+        self.buttons_frame.pack()
+
+        # style the buttons frame as follows...
+        # ...set the background colour to pink
+        # ...add padding of 10 pixels above and below
+        self.buttons_frame.configure(bg="pink",
+                                     pady=10,
+                                     padx=10)
+       
+        # add clear button
+        self.clear_button = Button(self.buttons_frame, text="Clear")
+        self.clear_button.pack(side=LEFT)
+        
+        # style the clear button
+        self.clear_button.configure(padx=10)
+
+        # add convert button
+        self.convert_button = Button(self.buttons_frame, text="Convert")
+        self.convert_button.pack(side=LEFT)
+        
+        # style the convert button
+        self.convert_button.configure(padx=10)
+        
+        # bind events
+        self.convert_button.bind("<Mouse-1>", convert_button_clicked)
+
+    def add_message_label(self):
+
+        # add message label
+        self.message_label = Label(text="System Message Displayed Here")
+        self.message_label.pack(fill=X)
+
+        # style the message label as follows...
+        # ...set border to 1 px
+        # ...set background colour to yellow
+        self.message_label.configure(bd=1,
+                                     bg="yellow")
+                                     
+    
+    def convert_button_clicked(self, event):
+    	
+      self.message_label.configure(text="Converting...")
+       
+       
+
+
+# the object
+gui = CurrencyConverter()
+gui.mainloop()
+
+
+
+
+
+
+
+#TASK A4 When the clear button is clicked the amount entered in the amount entry box should be cleared and the message in system message label should be reset to "System Message Displayed Here" as shown in the design below: 
+#We can use the similar approach of binding an event to the clear button:
+
+from tkinter import *
+
+# the class
+class CurrencyConverter(Tk):
+
+    def __init__(self):
+
+        # initialise window
+        super().__init__()
+
+        # style the window as follows...
+        # ...add padding of 10 pixels
+        # ...set background colour to pink
+        self.configure(bg="pink",
+                       padx=10,
+                       pady=10)
+
+        # add components
+        self.add_heading_label()
+        self.add_amount_label()
+        self.add_amount_entry()
+        self.add_buttons()
+        self.add_message_label()
+       
+   
+    def add_heading_label(self):
+
+        # add heading label
+        self.heading_label = Label(text="Currency Converter")
+        self.heading_label.pack(fill=X)
+               
+        # style the heading label as follows...
+        # ...change the font to Arial, size 18
+        # ...add padding of 10 pixels above and below
+        # ...add padding of 50 pixels on the sides
+        self.heading_label.configure(bg="pink",
+                                     font="Arial 18",
+                                     pady=10,
+                                     padx=50)
+
+    def add_amount_label(self):
+
+        # add amount label
+        self.amount_label = Label(text="Amount")
+        self.amount_label.pack(anchor=W)
+
+        # style the amount label as follows...
+        # ...set background colour to pink
+        self.amount_label.configure(bg="pink")
+
+    def add_amount_entry(self):
+
+        # add amount entry
+        self.amount_entry = Entry()
+        self.amount_entry.pack(fill=X)
+
+    def add_buttons(self):
+
+        # add buttons frame
+        self.buttons_frame = Frame()
+        self.buttons_frame.pack()
+
+        # style the buttons frame as follows...
+        # ...set the background colour to pink
+        # ...add padding of 10 pixels above and below
+        self.buttons_frame.configure(bg="pink",
+                                     pady=10,
+                                     padx=10)
+       
+        # add clear button
+        self.clear_button = Button(self.buttons_frame, text="Clear")
+        self.clear_button.pack(side=LEFT)
+        
+        # style the clear button
+        self.clear_button.configure(padx=10)
+        
+        # bind events
+        self.clear_button.bind("<Button-1>", self.clear_button_clicked)
+
+        # add convert button
+        self.convert_button = Button(self.buttons_frame, text="Convert")
+        self.convert_button.pack(side=LEFT)
+        
+        # style the convert button
+        self.convert_button.configure(padx=10)
+        
+        # bind events
+        self.convert_button.bind("<Button-1>", self.convert_button_clicked)
+
+    def add_message_label(self):
+
+        # add message label
+        self.message_label = Label(text="System Message Displayed Here")
+        self.message_label.pack(fill=X)
+
+        # style the message label as follows...
+        # ...set border to 1 px
+        # ...set background colour to yellow
+        self.message_label.configure(bd=1,
+                                     bg="yellow")
+                                     
+    
+    def convert_button_clicked(self, event):
+    	
+      self.message_label.configure(text="Converting...")
+      
+    
+    def clear_button_clicked(self, event):
+    
+    	self.amount_label.delete(0, END)
+        # or self.amount_label.configure(text="")
+      
+    	self.message_label.configure(text="System Message Displayed Here")
+       
+       
+
+
+# the object
+gui = CurrencyConverter()
+gui.mainloop()
+
