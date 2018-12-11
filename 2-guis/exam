@@ -1,0 +1,160 @@
+from tkinter import *
+
+# the class
+class part_b(Tk):
+    def __init__(self):
+  	
+        # initialise the window
+        super().__init__()
+
+        self.season_image = PhotoImage(file="season.gif")
+        self.summer_image = PhotoImage(file="summer.gif")
+        self.winter_image = PhotoImage(file="winter.gif")
+        self.autumn_image = PhotoImage(file="autumn.gif")
+        self.spring_image = PhotoImage(file="spring.gif")
+        self.unknown_image = PhotoImage(file="unknown.gif")
+
+
+        # style the window as follows...
+        # ...add padding of 10 pixels
+        self.title("Greetings")
+        self.configure(bg="#fd6666", padx=15,
+                       pady=15)
+
+  	# add components
+        self.add_heading_label()
+        self.add_season_frame()
+        self.add_season_label()
+        self.add_season_entry()
+        self.add_message_frame()
+        self.add_message_label()
+        self.add_message_entry()
+        self.add_instruction_label()
+        self.add_send_button()
+        self.add_season_image_label()
+        
+        self.add_unknown_image_label()
+       
+
+        
+        #self.add_buttons()
+        
+        
+
+    def add_heading_label(self):
+    
+        # add the label
+        self.heading_label = Label(text="SEND GREETING")
+        self.heading_label.grid(row=1, column=2, columnspan=2)
+        
+        # style the label
+        self.heading_label.configure(bg="#ff4141", font="Arial 16",
+                                     pady=11, fg="#fff")
+        
+    def add_season_image_label(self):
+        self.season_image_label = Label()
+        self.season_image_label.grid(row=0, column=2)
+        self.season_image_label.configure(image=self.season_image, bg="#ff4141")
+
+
+
+        
+
+    def add_season_frame(self):
+        self.season_frame = Frame()
+        self.season_frame.grid(row=2, column=2, columnspan=2)
+        self.season_frame.configure(bg="#ff4141")
+   
+
+    def add_season_label(self):
+
+        # add season label
+        self.season_label = Label(self.season_frame, text="Season:")
+        self.season_label.grid(row=0, column=1, columnspan=1)
+
+        # style the season label as follows...
+        self.season_label.configure(bg="#ff4141", fg="#fff", padx=20)
+
+    def add_season_entry(self):
+        self.season_entry = Entry(self.season_frame)
+        self.season_entry.grid(row=0, column=2, columnspan=1)
+
+        self.season_entry.bind("Winter", self.winter_one)
+        self.season_entry.bind("Spring", self.spring_one)
+        self.season_entry.bind("Summer", self.summer_one)
+        self.season_entry.bind("Autumn", self.autumn_one)
+
+
+    def add_message_frame(self):
+        self.message_frame = Frame()
+        self.message_frame.grid(row=3, column=1, columnspan=2)
+        self.message_frame.configure(bg="#ff4141")
+        
+
+    def add_message_label(self):
+
+        # add message label
+        self.message_label = Label(self.message_frame, text="Message:")
+        self.message_label.grid(row=1, column=0, columnspan=1)
+
+        # style the message label as follows...
+        self.message_label.configure(bg="#ff4141", fg="#fff", padx=20)
+
+    def add_message_entry(self):
+        self.message_entry = Entry(self.message_frame)
+        self.message_entry.grid(row=2, column=0, columnspan=1)
+
+
+    def add_instruction_label(self):
+
+        # add instruction label
+        self.instruction_label = Label(text="Please complete all fields and then click send.")
+        self.instruction_label.grid(row=4, column=2, columnspan=2)
+
+        # style the instruction label as follows...
+        self.instruction_label.configure(bg="#ff4141", fg="#fff", padx=20)
+
+
+
+    def add_unknown_image_label(self):
+        self.unknown_image_label = Label()
+        self.unknown_image_label.grid(row=5, column=2, columnspan=2)
+        self.unknown_image_label.configure(image=self.unknown_image)
+                               
+
+    def winter_one(self, event):
+        self.unknown_image_label.configure(image=self.winter_image)
+
+    def summer_one(self, event):
+        self.unknown_image_label.configure(image=self.summer_image)
+
+    def autumn_one(self, event):
+        self.unknown_image_label.configure(image=self.autumn_image)
+
+    def spring_one(self, event):
+        self.unknown_image_label.configure(image=self.spring_image)
+
+
+
+    def add_send_button(self):
+
+        #self.button_frame = Frame()
+        #self.button_frame.grid(row=5, column=0, columnspan=2)
+
+        #self.button_frame.configure(pady=10, padx=10)
+        
+
+        self.send_button = Button(text="Send")
+        self.send_button.grid(row=6, column=2, columnspan=3)
+
+        self.send_button.configure(bg="#ff0", padx=12)
+        self.send_button.bind("<KeyRelease-1>", self.send_button_clicked)
+
+    def send_button_clicked(self, event):
+        messagebox.showinfo("Sent!", "Your greeting has been sent!")
+
+      
+
+# the object
+gui = part_b()
+gui.mainloop()
