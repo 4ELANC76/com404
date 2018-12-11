@@ -69,3 +69,9 @@ class Gui(Tk):
         lyric = self.lyric_entry.get()
         self.lyrics_listbox.insert(END, lyric)
         messagebox.showinfo("Added!", "Your lyric has been added!")
+        
+ if (__name__ == "__main__"):
+
+    gui = Gui()
+
+    gui.mainloop()
