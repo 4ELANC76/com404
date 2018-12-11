@@ -1,0 +1,21 @@
+# the class
+
+
+ # initialise window
+
+
+ # add components
+
+
+ # add heading label
+
+
+ # the object
+
+
+#Bg = background for the colour
+#Bd = border usually in pixels
+#Bitmap/image = to put an image on a button
+#Fg = the colour used to render the text
+#Padx = how much space to leave left and right in pixels
+#Pady = how much space to leave above and below in pixels
