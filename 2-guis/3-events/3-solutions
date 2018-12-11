@@ -17,8 +17,7 @@ class Gui(Tk):
         self.add_heading_label()
         self.add_lyric_label()
         self.add_lyric_entry()
-        self.add_add_button()
-        self.add_lyrics_label()
+        self.add_add_button()        self.add_lyrics_label()
         self.add_lyrics_listbox()
 
 
