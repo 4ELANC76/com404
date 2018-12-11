@@ -7,11 +7,13 @@ class CurrencyConverter(Tk):
         # initialise the window
         super().__init__()
 
+        #load resources
+        self.tick_image = PhotoImage(file="tick.gif")
+
         # style the window as follows...
         # ...add padding of 10 pixels
         # ...set background colour to pink
-        self.configure(
-                       padx=10,
+        self.configure(padx=10,
                        pady=10)
 
   	# add components
@@ -20,6 +22,7 @@ class CurrencyConverter(Tk):
         self.add_amount_entry()
         self.add_buttons()
         self.add_message_label()
+        seld.add_tick_image_label()
 
     def add_heading_label(self):
     
@@ -33,7 +36,12 @@ class CurrencyConverter(Tk):
         # - add padding of 10px above and below the label
         self.heading_label.configure(font="Arial 18",
                                      pady=10,
-                                     padx=50) 
+                                     padx=50)
+    def add_tick_image_label(self):
+        self.tick_image_label = Label()
+        self.tick_image_label.grid(row= ,column=
+                                   )
+        self.tick_image_label.configure(image=self.tick_image, height=30, width=30)
 
     def add_amount_label(self):
 
